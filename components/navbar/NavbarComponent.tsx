@@ -31,7 +31,7 @@ export function NavbarComponent() {
     setMenu(newMenu);
   };
   return (
-    <Navbar fluid rounded>
+    <Navbar fluid rounded className="fixed w-full">
       <NavbarBrand as={Link} href="https://flowbite-react.com">
         <Image
           width={100}

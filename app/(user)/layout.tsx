@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import { ErrorBoundary } from "next/dist/client/components/error-boundary";
 import CustomErrorComponent from "./error";
+import { FooterComponent } from "@/components/footer/FooterComponent";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({
@@ -15,12 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="h-screen flex flex-col mx-14">
+      <body className="h-screen flex flex-col bg-slate-300">
         <header>
           <NavbarComponent />
         </header>
         <ErrorBoundary errorComponent={CustomErrorComponent}>
-          <Suspense fallback={<Loading />}>{children}</Suspense>
+          <Suspense fallback={<Loading />}>
+            {children}
+            <FooterComponent />
+          </Suspense>
         </ErrorBoundary>
       </body>
     </html>

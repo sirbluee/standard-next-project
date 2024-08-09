@@ -1,6 +1,6 @@
 "use client";
 import { CardProduct } from "@/components/card/cardProduct";
-import { Spinner } from "flowbite-react";
+import { Pagination, Spinner } from "flowbite-react";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
@@ -8,7 +8,16 @@ export default function Service() {
   const router = useRouter();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
+
   const ENDPOINT = "https://fakestoreapi.com/products/";
+
+  const onPageChange = (page: number) => setCurrentPage(page);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedProducts = products.slice(startIndex, endIndex);
 
   useEffect(() => {
     fetch(ENDPOINT)
@@ -28,16 +37,25 @@ export default function Service() {
   }
 
   return (
-    <div className="grid sm:grid-cols-2 md:grid-cols-4 place-content-center gap-4">
-      {products.slice(0, 8).map((product: any, index) => (
-        <CardProduct
-          onClick={() => router.push(`/services/${product.id}`)}
-          key={index}
-          title={product.title}
-          price={product.price}
-          image={product.image}
+    <div className="flex flex-col items-center mt-14 py-14 mx-14">
+      <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {paginatedProducts.map((product: any, index) => (
+          <CardProduct
+            onClick={() => router.push(`/services/${product.id}`)}
+            key={index}
+            title={product.title}
+            price={product.price}
+            image={product.image}
+          />
+        ))}
+      </div>
+      <div className="mt-4">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={onPageChange}
         />
-      ))}
+      </div>
     </div>
   );
 }
