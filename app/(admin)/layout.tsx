@@ -12,7 +12,7 @@ export default function AdminLayout({
         <aside className="fixed h-screen">
           <SidebarComponent />
         </aside>
-        <main className="">{children}</main>
+        <main>{children}</main> 
       </body>
     </html>
   );

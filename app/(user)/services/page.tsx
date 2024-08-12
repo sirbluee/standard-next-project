@@ -12,6 +12,7 @@ export default function Service() {
   const itemsPerPage = 8;
 
   const ENDPOINT = "https://fakestoreapi.com/products/";
+  // const ENDPOINT = "https://fakestoreapi.com/products?limit=8";
 
   const onPageChange = (page: number) => setCurrentPage(page);
   const totalPages = Math.ceil(products.length / itemsPerPage);

@@ -1,0 +1,3 @@
+.container {
+    @apply px-8 py-4 justify-center items-center bg-blue-700 rounded-lg text-3xl font-semibold text-gray-100
+}

@@ -14,7 +14,7 @@ type MenuItem = {
 export default function SidebarComponent() {
   const [menuList, setMenuList] = useState<MenuItem[]>(MenuList);
   return (
-    <Sidebar aria-label="Default sidebar example">
+    <Sidebar aria-label="Default sidebar example" className="shadow-lg">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           {menuList.map((item, index) => (
