@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+disallow: /private/
+Disallow: /dashboard/
+
+Sitemap: https://standard-next-project.vercel.app/sitemap.xml
