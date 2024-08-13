@@ -21,10 +21,10 @@ export default async function ProductList({
   const limit = 8; // Set the number of items per page
 
   // Fetch the current page of products
-  const res = await fetch(`${ENDPOINT}?limit=${limit}&page=${page}`, { cache: 'force-cache' });
+  const res = await fetch(`${ENDPOINT}?limit=${limit}&page=${page}`);
   const products = await res.json();
 
-  const totalPages = 5; 
+  const totalPages = 5;   
 
   return (
     <div className="ml-[270px]">
@@ -41,7 +41,7 @@ export default async function ProductList({
               </TableHeadCell>
           </TableHead>
           <TableBody className="divide-y">
-            {products.map((product, index) => (
+            {products.map((product: any, index: any) => (
               <TableRow
                 key={index}
                 className="bg-white dark:border-gray-700 dark:bg-gray-800"

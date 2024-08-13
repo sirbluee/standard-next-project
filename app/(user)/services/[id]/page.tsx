@@ -9,8 +9,7 @@ type PropsParams = {
 
 const ENDPOINT = "https://fakestoreapi.com/products/";
 
-export const getData = async (id: number) => {
-//   const res = await fetch(`${ENDPOINT}${id}`, {cache: "no-store"}); 
+const getData = async (id: number) => {
   const res = await fetch(`${ENDPOINT}${id}`);
   const data = res.json();
   return data;
