@@ -10,7 +10,6 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   const [isShowSideBar, setIsShowSideBar] = useState<boolean>(true);
-  console.log(isShowSideBar);
   return (
     <html>
       <body className="flex none-scroll-bar overflow-x-auto">

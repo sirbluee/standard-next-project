@@ -17,7 +17,9 @@ export default function Dashboard() {
     setOpenModal(true);
   };
 
-  const [imagePlaceholder, setImagePlaceholder] = useState<string>("https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png")
+  const [imagePlaceholder, setImagePlaceholder] = useState<string>(
+    "https://developers.elementor.com/docs/assets/img/elementor-placeholder-image.png"
+  );
 
   // fetch products
   useEffect(() => {
@@ -63,12 +65,16 @@ export default function Dashboard() {
             onClick={() => {
               handleViewProduct(row);
             }}
-            className="text-blue-600 mx-2"
+            className="bg-blue-400 rounded-md p-2 mx-2 text-white font-semibold"
           >
-            view
+            View
           </button>
-          <button className="text-yellow-400 mx-2">edit</button>
-          <button className="text-red-600 mx-2">delete</button>
+          <button className="mx-2 bg-yellow-400 rounded-md p-2 text-white font-semibold">
+            Edit
+          </button>
+          <button className="bg-red-400 rounded-md p-2 mx-2 text-white font-semibold">
+            Delete
+          </button>
         </div>
       ),
     },
@@ -90,10 +96,11 @@ export default function Dashboard() {
         <Modal.Header>Product Details</Modal.Header>
         <Modal.Body>
           <div className="space-y-6">
-            <Image 
-            width={150} height={200}
-            src={productDetail?.image || imagePlaceholder} alt={productDetail?.title || "Untitle"}
-            
+            <Image
+              width={150}
+              height={200}
+              src={productDetail?.image || imagePlaceholder}
+              alt={productDetail?.title || "Untitle"}
             />
             <h3 className="text-3xl text-gray-700">{productDetail?.title}</h3>
             <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
